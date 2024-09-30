@@ -6,20 +6,40 @@
 }
 
 body {
-    background-color: #ffffff;
+    background-color: #f8f8f8;
 }
 
+/* Header and Navigation */
 header {
     text-align: center;
     padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.burger-menu {
+    display: none;
+    font-size: 2em;
+    cursor: pointer;
 }
 
 .buttons button {
@@ -46,30 +66,25 @@ nav {
     width: 250px;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+
+
+
+.block-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
     padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .block {
-    background-color: white;
-    border: 1px solid #ccc;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    min-height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 100px;
     text-align: center;
     overflow-wrap: break-word;
-}
-
-.block:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .title {
@@ -78,8 +93,56 @@ nav {
     padding: 10px 0;
 }
 
+/* Hover Effect for Blocks */
+.block-container:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .grid-container {
         grid-template-columns: 1fr;
     }
+
+    .burger-menu {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        padding: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
 }
+
+/* Supprimer les encadrements autour des boutons */
+.buttons button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Stylisation de la grille */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+
