@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif; /* Changer la police d'écriture */
 }
 
 body {
@@ -12,63 +12,62 @@ body {
 /* Header and Navigation */
 header {
     text-align: center;
-    padding: 20px;
-    background-color: #fff;
+    padding: 300px; /* Taille du header maintenue */
+    background-color: #1b1b1b; /* Couleur du header */
     border-bottom: 1px solid #e0e0e0;
+    position: relative; /* Position pour aligner les boutons en haut */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée sous le header */
+    color: rgb(255, 255, 255);
 }
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centre les boutons */
     align-items: center;
     padding: 10px 20px;
-    position: relative;
+    position: absolute; /* Position absolue pour placer en haut */
+    top: 10px; /* Espace entre le haut du header et les boutons */
+    left: 50%;
+    transform: translateX(-50%); /* Centrer les boutons */
 }
 
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
+.main-title {
+    
+    text-align: center; /* Centre le texte */
+    font-size: 28px; /* Taille du texte */
+    margin: 20px 0; /* Espace autour du titre */
+    color: #333; /* Couleur du texte */
+    font-weight: 700; /* Épaisseur du texte */
 }
 
-.nav-links {
+
+.buttons {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 10px; /* Espace entre les boutons */
 }
 
-.burger-menu {
-    display: none;
-    font-size: 2em;
-    cursor: pointer;
-}
-
+/* Styles des boutons */
 .buttons button {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px 15px;
-    margin-right: 10px;
+    color: aqua; /* Couleur du texte des boutons */
+    background-color: transparent; /* Enlever le fond des boutons */
+    border: none; /* Suppression de la bordure */
+    padding: 15px 20px; /* Agrandir le padding des boutons */
+    font-size: 20px; /* Agrandir la taille du texte des boutons */
     cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Ajouter une ombre légère aux boutons */
+    transition: box-shadow 0.3s ease; /* Transition pour l'ombre */
+    outline: none; /* Enlève le contour des boutons */
 }
 
 .buttons button:hover {
-    background-color: #f0f0f0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée au survol */
 }
 
 .search-container {
-    display: flex;
-    align-items: center;
+    display: none; /* Masquer la barre de recherche sur mobile */
 }
 
-#search-bar {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    width: 250px;
-}
-
-
-
-
+/* Bloc Styles */
 .block-container {
     display: flex;
     flex-direction: column;
@@ -78,20 +77,50 @@ nav {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    margin: 50px;
 }
 
 .block {
     padding: 20px;
     min-height: 100px;
-    text-align: center;
+    text-align: center; /* Centre le texte dans les blocs */
     overflow-wrap: break-word;
+    font-size: 16px; /* Taille du texte des blocs */
 }
 
 .title {
-    text-align: center;
+    text-align: center; /* Centre le titre des blocs */
     font-weight: bold;
     padding: 10px 0;
+    font-size: 20px; /* Taille du titre des blocs */
 }
+
+
+
+h1 {
+    font-size: 80px; /* Agrandir le titre principal dans le header */
+    margin: 20px 0; /* Espace autour du titre */
+}
+
+p {
+    font-size: 18px; /* Agrandir le sous-titre dans le header */
+    text-align: center; /* Centre le texte des paragraphes */
+    margin: 80px 5% 20px; /* Marge en haut et en bas, avec 10% de marge sur les côtés */
+}
+
+p1 {
+    font-size: 18px; /* Agrandir le sous-titre dans le header */
+    text-align: center; /* Centre le texte du paragraphe */
+    margin: 0 5% 20px; /* Pas de marge en haut, 20px en bas, 5% sur les côtés */
+}
+
+
+h3 {
+    text-align: center; /* Centre le texte du sous-titre */
+    margin: 20px 10%; /* Marge en haut et en bas, avec 10% de marge sur les côtés */
+}
+
+
 
 /* Hover Effect for Blocks */
 .block-container:hover {
@@ -101,48 +130,68 @@ nav {
 /* Responsive Design */
 @media (max-width: 768px) {
     .grid-container {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* 1 bloc par colonne sur mobile */
+        gap: 20px;
+        padding: 20px;
     }
 
-    .burger-menu {
-        display: block;
+    nav {
+        flex-direction: column; /* Aligne les éléments verticalement */
+        align-items: center; /* Centre les éléments dans le nav */
     }
 
-    .nav-links {
+    .buttons {
+        justify-content: center; /* Centre les boutons */
+    }
+
+    /* Cacher la barre de recherche sur mobile */
+    .search-container {
         display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: #fff;
-        padding: 10px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
-
-    .nav-links.active {
-        display: flex;
-    }
-}
-
-/* Supprimer les encadrements autour des boutons */
-.buttons button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.buttons {
-    display: flex;
-    gap: 10px;
 }
 
 /* Stylisation de la grille */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 2 blocs par colonne sur desktop */
     gap: 20px;
     padding: 20px;
 }
 
+
+
+
+
+
+
+footer {
+    background-color: #ffffff; /* Fond blanc */
+    padding: 20px; /* Espacement autour du contenu du footer */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet de profondeur */
+    text-align: center; /* Centre le texte */
+   
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Colonne pour le texte et les icônes */
+    align-items: center; /* Centre les éléments */
+}
+
+.social-media {
+    margin-top: 10px; /* Espace au-dessus des icônes de réseaux sociaux */
+}
+
+.social-icon {
+    margin: 0 10px; /* Espace entre les icônes */
+    text-decoration: none; /* Retire le soulignement */
+    color: #1b1b1b; /* Couleur du texte des icônes */
+    font-weight: bold; /* Met en gras le texte */
+}
+
+.social-icon:hover {
+    color: aqua; /* Change la couleur au survol */
+    text-decoration: underline; /* Souligne au survol */
+}
 
