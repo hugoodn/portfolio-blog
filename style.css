@@ -54,7 +54,7 @@ nav {
     padding: 15px 20px; /* Agrandir le padding des boutons */
     font-size: 20px; /* Agrandir la taille du texte des boutons */
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Ajouter une ombre légère aux boutons */
+   
     transition: box-shadow 0.3s ease; /* Transition pour l'ombre */
     outline: none; /* Enlève le contour des boutons */
 }
